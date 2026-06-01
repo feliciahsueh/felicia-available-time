@@ -182,7 +182,7 @@
     h1 {
       margin: 0;
       font-family: var(--font-serif);
-      font-size: clamp(31px, 5vw, 54px);
+      font-size: clamp(29px, 4.4vw, 48px);
       line-height: 1.08;
       font-weight: 600;
       letter-spacing: 0.025em;
@@ -533,10 +533,10 @@
         border: 1px solid var(--line);
         border-radius: 16px;
         background: rgba(255, 255, 255, 0.54);
-        padding: 11px 12px;
+        padding: 11px 10px;
         display: grid;
-        grid-template-columns: 17% 20% 38% 25%;
-        gap: 0;
+        grid-template-columns: 38px 50px minmax(0, 1fr);
+        gap: 6px;
         text-align: left;
         align-items: center;
       }
@@ -564,32 +564,35 @@
         line-height: 30px;
       }
       .slots {
-        grid-column: 3 / span 2;
+        grid-column: 3;
         grid-row: 1;
         margin-top: 0;
         align-items: stretch;
         justify-content: center;
         gap: 6px;
+        min-width: 0;
       }
       .slot-row {
-        display: contents;
+        display: grid;
+        grid-template-columns: minmax(88px, 1fr) 46px;
+        align-items: center;
+        gap: 7px;
         width: 100%;
+        min-width: 0;
       }
       .pill {
-        grid-column: 3;
-        width: min(112px, 100%);
+        width: 100%;
         min-width: 0;
         height: 30px;
         font-size: 13px;
-        padding: 0 8px;
-        justify-self: center;
+        padding: 0 7px;
+        justify-self: stretch;
       }
       .book-slot {
-        grid-column: 4;
-        width: min(58px, 100%);
+        width: 46px;
         height: 30px;
         padding: 0;
-        justify-self: center;
+        justify-self: end;
       }
       .no-availability { margin-top: 0; text-align: left; line-height: 30px; }
       .book-slot {
@@ -615,12 +618,13 @@
     }
 
     @media (max-width: 420px) {
-      h1 { font-size: 30px; }
+      h1 { font-size: 25px; white-space: nowrap; letter-spacing: 0.01em; }
       .subtitle { font-size: 13px; }
       .date-range { font-size: 16px; }
-      .day { grid-template-columns: 17% 20% 38% 25%; gap: 0; padding: 10px; }
-      .pill { width: min(104px, 100%); font-size: 12.5px; }
-      .book-slot { width: min(54px, 100%); height: 30px; padding: 0; font-size: 12px; }
+      .day { grid-template-columns: 36px 46px minmax(0, 1fr); gap: 5px; padding: 10px 9px; }
+      .slot-row { grid-template-columns: minmax(82px, 1fr) 44px; gap: 6px; }
+      .pill { font-size: 12.5px; }
+      .book-slot { width: 44px; height: 30px; padding: 0; font-size: 12px; }
       .nav button { font-size: 12px; }
     }
   </style>
@@ -646,7 +650,7 @@
           <div class="decor-line"><span class="decor-symbol">⌁</span></div>
           <div class="subtitle">
             到宅陪玩 ‧ 臨托服務 ‧ 高雄市區 ‧ 彈性時段<br />
-            Mandarin &amp; English Bilingual Childcare ‧ Kaohsiung
+            Mandarin &amp; English Bilingual Childcare
           </div>
           <div class="date-range" id="rangeLabel">--</div>
         </header>
@@ -668,8 +672,8 @@
 
       <section id="resume" class="page content-page">
         <div class="section-title">
-          <h2>Resume</h2>
-          <p>到宅陪玩與臨托服務簡介。此頁可先放履歷摘要，之後再補上正式中英文完整版本。</p>
+          <h2>Hi, 我是 Felicia</h2>
+          <p>到宅陪玩 / 臨托服務｜以安全、耐心、細心與良好溝通，陪伴孩子也讓家長放心。</p>
         </div>
 
         <div class="resume-card">
@@ -681,22 +685,84 @@
           <div id="resume-zh" class="resume-version active">
             <div class="resume-grid">
               <div class="profile-block">
-                <h3>Felicia</h3>
-                <p>提供高雄市區到宅陪玩與臨托服務。重視安全感、陪伴品質與家長溝通，能以溫和、穩定、有界線的方式陪伴小孩。</p>
+                <h3>服務簡介</h3>
+                <ul>
+                  <li>目前是一位約 1 歲混血男寶寶的陪玩姐姐</li>
+                  <li>也曾協助親戚與朋友照顧小孩，年齡約 2～6 歲都有</li>
+                  <li>提供到宅陪玩 / 臨托服務，地點以高雄市區為主</li>
+                  <li>三多商圈附近兩站內佳，騎車約 10 分鐘內可配合</li>
+                  <li>時間可彈性討論，目前固定陪伴時段多為一週兩個中午時段，因此希望再安排其他時段服務</li>
+                </ul>
                 <div class="tag-list">
                   <span class="tag">到宅陪玩</span>
-                  <span class="tag">臨托照顧</span>
-                  <span class="tag">中英雙語</span>
-                  <span class="tag">彈性時段</span>
+                  <span class="tag">臨托服務</span>
+                  <span class="tag">中文 / 英文 / 台語</span>
+                  <span class="tag">高雄市區</span>
                 </div>
               </div>
+
               <div class="profile-block">
-                <h3>服務重點</h3>
+                <h3>關於我</h3>
                 <ul>
-                  <li>陪伴遊戲、共讀、簡單生活照顧與安全看顧</li>
-                  <li>可依家庭習慣配合小孩作息與照顧規則</li>
-                  <li>照顧過程中會與家長保持清楚、即時的溝通</li>
-                  <li>實際服務內容與時段皆以私訊確認為準</li>
+                  <li>政治大學國貿系、廣告系雙主修</li>
+                  <li>曾任資訊服務業 PM（專案經理）</li>
+                  <li>2026/4 完成托育人員課程並取得結業證書（可提供）</li>
+                  <li>目前準備 6 月底保母證照考試，取得後將申請到宅托育服務登記</li>
+                </ul>
+              </div>
+
+              <div class="profile-block">
+                <h3>可協助內容</h3>
+                <ul>
+                  <li>陪玩互動</li>
+                  <li>陪讀 / 說故事</li>
+                  <li>餵食（副食品需由家長準備）</li>
+                  <li>安撫哄睡</li>
+                  <li>換尿布</li>
+                  <li>洗澡</li>
+                  <li>散步或外出陪同</li>
+                </ul>
+              </div>
+
+              <div class="profile-block">
+                <h3>交通接送</h3>
+                <p>若有需要開車接送，可由我自備車輛，但兒童安全座椅需由家長提供。</p>
+                <p>另外會依地點與時長酌收車馬費與停車費，約 $50～$300。</p>
+              </div>
+
+              <div class="profile-block">
+                <h3>目前收費</h3>
+                <p><strong>$350 / hr</strong></p>
+                <ul>
+                  <li>最少 2 小時</li>
+                  <li>3 小時 $1,000</li>
+                </ul>
+              </div>
+
+              <div class="profile-block">
+                <h3>取得保母證照後（預計）</h3>
+                <p><strong>$400 / hr</strong></p>
+                <ul>
+                  <li>最少 2 小時</li>
+                  <li>4 小時 $1,500</li>
+                </ul>
+              </div>
+
+              <div class="profile-block">
+                <h3>其他</h3>
+                <ul>
+                  <li>不抽菸</li>
+                  <li>陪伴期間不使用 3C</li>
+                  <li>家長若有特殊需求或習慣，也都可以提前討論配合</li>
+                </ul>
+              </div>
+
+              <div class="profile-block">
+                <h3>服務原則</h3>
+                <ul>
+                  <li>安全第一：以孩子的安全與需求為優先</li>
+                  <li>耐心細心：尊重孩子的節奏與情緒</li>
+                  <li>良好溝通：與家長保持開放與信任的溝通</li>
                 </ul>
               </div>
             </div>
@@ -705,22 +771,84 @@
           <div id="resume-en" class="resume-version">
             <div class="resume-grid">
               <div class="profile-block">
-                <h3>Felicia</h3>
-                <p>Kaohsiung-based in-home childcare and play companion service. I focus on safety, warm companionship, and clear communication with parents.</p>
+                <h3>Service Overview</h3>
+                <ul>
+                  <li>I currently work as a play companion for a 1-year-old mixed-race baby boy</li>
+                  <li>I have also helped relatives and friends care for children aged around 2–6</li>
+                  <li>I offer in-home play companion and temporary childcare services in Kaohsiung</li>
+                  <li>Locations near Sanduo Shopping District are preferred, especially within around 10 minutes by scooter</li>
+                  <li>Schedule is flexible and can be discussed based on your family’s needs</li>
+                </ul>
                 <div class="tag-list">
                   <span class="tag">In-home childcare</span>
                   <span class="tag">Play companion</span>
-                  <span class="tag">Mandarin &amp; English</span>
-                  <span class="tag">Flexible hours</span>
+                  <span class="tag">Mandarin / English / Taiwanese</span>
+                  <span class="tag">Kaohsiung</span>
                 </div>
               </div>
+
               <div class="profile-block">
-                <h3>Service Highlights</h3>
+                <h3>About Me</h3>
                 <ul>
-                  <li>Playtime, reading, basic daily care, and safe supervision</li>
-                  <li>Flexible support based on each family's routine and rules</li>
-                  <li>Clear and timely communication with parents</li>
-                  <li>Final schedule and service details will be confirmed by message</li>
+                  <li>Double majored in International Business and Advertising at National Chengchi University</li>
+                  <li>Former project manager in the IT / information service industry</li>
+                  <li>Completed childcare training in April 2026 and obtained the course completion certificate</li>
+                  <li>Preparing for the nanny certification exam at the end of June</li>
+                </ul>
+              </div>
+
+              <div class="profile-block">
+                <h3>What I Can Help With</h3>
+                <ul>
+                  <li>Interactive play</li>
+                  <li>Reading and storytelling</li>
+                  <li>Feeding; baby food should be prepared by parents</li>
+                  <li>Soothing and nap support</li>
+                  <li>Diaper changing</li>
+                  <li>Bathing</li>
+                  <li>Walks or outdoor accompaniment</li>
+                </ul>
+              </div>
+
+              <div class="profile-block">
+                <h3>Transportation</h3>
+                <p>I can drive if transportation support is needed, but parents should provide the child safety seat.</p>
+                <p>Transportation and parking fees may apply depending on location and duration, approximately NT$50–300.</p>
+              </div>
+
+              <div class="profile-block">
+                <h3>Current Rate</h3>
+                <p><strong>NT$350 / hr</strong></p>
+                <ul>
+                  <li>Minimum 2 hours</li>
+                  <li>3 hours for NT$1,000</li>
+                </ul>
+              </div>
+
+              <div class="profile-block">
+                <h3>After Nanny Certification</h3>
+                <p><strong>NT$400 / hr</strong></p>
+                <ul>
+                  <li>Minimum 2 hours</li>
+                  <li>4 hours for NT$1,500</li>
+                </ul>
+              </div>
+
+              <div class="profile-block">
+                <h3>Other Notes</h3>
+                <ul>
+                  <li>Non-smoker</li>
+                  <li>No personal screen use during childcare</li>
+                  <li>Special routines or family preferences can be discussed in advance</li>
+                </ul>
+              </div>
+
+              <div class="profile-block">
+                <h3>Care Principles</h3>
+                <ul>
+                  <li>Safety first</li>
+                  <li>Patient and attentive care</li>
+                  <li>Clear communication with parents</li>
                 </ul>
               </div>
             </div>
@@ -880,7 +1008,7 @@ Hi Felicia, I would like to book ${bookingDate} ${timeText}. Is this time still 
 
       window.setTimeout(() => {
         window.location.href = LINE_URL;
-      }, 850);
+      }, 1500);
     }
 
     function addMonths(date, months) {
