@@ -1,10 +1,7 @@
-# Felicia Childcare Website — Phase 1
+# Felicia Childcare Website — Phase 1 Fixed
 
-This package updates:
-- Default page and navigation order
-- Hash links: #availability, #about, #gallery
-- Availability inquiry flow
-- Multi-slot selection, editing, overlap / 2-hour-gap validation
-- Up to 10 time slots per inquiry
+This package fixes:
+- Calendar loading issue caused by a JavaScript syntax error
+- Bilingual paragraph spacing on Availability and modal instructions
 
-About and Gallery content remain from the previous version for the next phase.
+The Google Apps Script / Google Sheets API URL remains connected to the original data source.

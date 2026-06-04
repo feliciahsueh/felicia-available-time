@@ -333,6 +333,31 @@
       font-size: 14px;
     }
 
+    .bilingual-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .bilingual-copy p {
+      margin: 0;
+    }
+
+    .bilingual-rules {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .bilingual-rule {
+      margin: 0;
+    }
+
+    .bilingual-rule .en {
+      display: block;
+      margin-top: 4px;
+    }
+
     .calendar-wrap {
       overflow: hidden;
       border: 1px solid var(--line);
@@ -1035,14 +1060,18 @@
           <div class="date-range" id="rangeLabel">--</div>
         </header>
 
-        <p class="availability-note">
-          本頁顯示未來一個月的可詢問時段，<br />
-          請點選日期並選取您的需求時間。<br />
-          實際安排以 Felicia 私訊確認為準。<br /><br />
-          This page shows the available times for the upcoming month.<br />
-          Please select a date and choose your preferred time.<br />
-          Final arrangements will be confirmed with Felicia by message.
-        </p>
+        <div class="availability-note bilingual-copy">
+          <p>
+            本頁顯示未來一個月的可詢問時段，<br />
+            請點選日期並選取您的需求時間。<br />
+            實際安排以 Felicia 私訊確認為準。
+          </p>
+          <p>
+            This page shows the available times for the upcoming month.<br />
+            Please select a date and choose your preferred time.<br />
+            Final arrangements will be confirmed with Felicia by message.
+          </p>
+        </div>
 
         <div id="state" class="state">正在載入可詢問時段…<br />Loading availability…</div>
         <div id="calendarWrap" class="calendar-wrap" hidden>
@@ -1051,11 +1080,15 @@
 
         <footer class="meta">
           <div class="sync" id="lastSynced">資料同步時間：--</div>
-          <div class="notice">
-            最晚須於預約日前一天 22:00 前確認，<br />
-            臨時取消亦同。<br /><br />
-            Please confirm your booking by 22:00 on the day before the service date.<br />
-            The same deadline applies to cancellations.
+          <div class="notice bilingual-copy">
+            <p>
+              最晚須於預約日前一天 22:00 前確認，<br />
+              臨時取消亦同。
+            </p>
+            <p>
+              Please confirm your booking by 22:00 on the day before the service date.<br />
+              The same deadline applies to cancellations.
+            </p>
           </div>
         </footer>
 
@@ -1137,13 +1170,19 @@
         </label>
       </div>
 
-      <div class="modal-note">
-        ・需求時間須落在網站顯示的可選時段內<br />
-        &nbsp;&nbsp;Requested time must fall within the available times shown on the website.<br /><br />
-        ・每次最短詢問時長為 2 小時<br />
-        &nbsp;&nbsp;The minimum inquiry duration is 2 hours.<br /><br />
-        ・當天如有緊急需求，請直接聯繫 Felicia<br />
-        &nbsp;&nbsp;For last-minute assistance, please contact Felicia directly.
+      <div class="modal-note bilingual-rules">
+        <p class="bilingual-rule">
+          ・需求時間須落在網站顯示的可選時段內
+          <span class="en">Requested time must fall within the available times shown on the website.</span>
+        </p>
+        <p class="bilingual-rule">
+          ・每次最短詢問時長為 2 小時
+          <span class="en">The minimum inquiry duration is 2 hours.</span>
+        </p>
+        <p class="bilingual-rule">
+          ・當天如有緊急需求，請直接聯繫 Felicia
+          <span class="en">For last-minute assistance, please contact Felicia directly.</span>
+        </p>
       </div>
       <div id="slotWarning" class="warning"></div>
 
@@ -1595,12 +1634,7 @@
         .slice()
         .sort((a, b) => a.dateKey.localeCompare(b.dateKey) || parseTimeToMinutes(a.start) - parseTimeToMinutes(b.start));
       const lines = sorted.map((item, index) => `${index + 1}. ${item.bookingDate} ${item.start}–${item.end}`);
-      return `Hi Felicia，我想詢問以下時段是否方便安排：
-
-${lines.join("
-")}
-
-謝謝！`;
+      return `Hi Felicia，我想詢問以下時段是否方便安排：\n\n${lines.join("\n")}\n\n謝謝！`;
     }
 
     async function copyText(text) {
@@ -1630,10 +1664,7 @@ ${lines.join("
       const message = buildInquiryMessage();
       try {
         await copyText(message);
-        showToast("已複製詢問內容，即將開啟 LINE。
-開啟後可直接貼上訊息。
-Inquiry copied. LINE will open shortly.
-Please paste the message directly.");
+        showToast("已複製詢問內容，即將開啟 LINE。\n開啟後可直接貼上訊息。\nInquiry copied. LINE will open shortly.\nPlease paste the message directly.");
       } catch (error) {
         showToast("複製失敗，仍會開啟 LINE。 / Copy failed, but LINE will still open.");
       }
@@ -1722,8 +1753,7 @@ Please paste the message directly.");
         const data = await loadJsonp(API_URL);
         renderCalendar(data);
       } catch (error) {
-        state.textContent = "無法載入可詢問時段，請稍後再試。
-Unable to load availability. Please try again later.";
+        state.textContent = "無法載入可詢問時段，請稍後再試。\nUnable to load availability. Please try again later.";
         console.error(error);
       }
     }
