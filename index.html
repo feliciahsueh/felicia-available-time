@@ -791,14 +791,17 @@
     }
 
     .feedback-item {
-      padding: 18px;
-      background: rgba(255, 255, 255, 0.22);
+      padding: 0;
+      background: transparent;
     }
 
     .feedback-item img {
       aspect-ratio: 4 / 5;
       object-fit: contain;
-      background: #fff;
+      padding: 12px;
+      border: 1px solid rgba(222, 214, 204, 0.72);
+      border-radius: 18px;
+      background: rgba(251, 248, 243, 0.42);
     }
 
     .gallery-item {
@@ -1253,15 +1256,62 @@
       .editorial-copy li { font-size: 14px; line-height: 1.8; }
       .price-emphasis { font-size: 28px !important; }
 
-      .gallery-title { margin-bottom: 36px; }
-      .gallery-section { margin-bottom: 70px; }
-      .gallery-section-heading { margin-bottom: 24px !important; }
+      /* Mobile Gallery: quieter editorial rhythm */
+      .gallery-title {
+        margin-bottom: 42px;
+        padding-left: 2px;
+        padding-right: 2px;
+      }
+
+      .gallery-title h2 {
+        font-size: 30px !important;
+        letter-spacing: 0.035em;
+      }
+
+      .gallery-title p {
+        max-width: 310px;
+        font-size: 13px;
+        line-height: 1.78;
+      }
+
+      .gallery-section {
+        margin-bottom: 84px;
+      }
+
+      .gallery-section:last-child {
+        margin-bottom: 48px;
+      }
+
+      .gallery-section-heading {
+        margin-bottom: 28px !important;
+        padding-top: 22px;
+      }
+
+      .gallery-section-heading .section-index {
+        margin-bottom: 12px;
+        color: var(--brand-dark);
+        font-size: 11px;
+        letter-spacing: 0.22em;
+      }
+
+      .gallery-section-heading h3 {
+        font-size: 31px !important;
+        line-height: 1.05;
+        letter-spacing: 0.018em;
+      }
+
+      .gallery-section-heading p {
+        margin-top: 10px !important;
+        font-size: 13px;
+        line-height: 1.72;
+      }
+
       .certificate-layout,
       .moment-layout,
       .feedback-layout {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 30px;
       }
 
       .moment-large:nth-of-type(1),
@@ -1272,11 +1322,52 @@
         margin-top: 0;
       }
 
-      .moment-large img,
-      .moment-small img { aspect-ratio: 4 / 3; }
-      .certificate-note { padding: 26px 22px; }
-      .feedback-item { padding: 12px; }
-      .feedback-item img { aspect-ratio: auto; }
+      .moment-layout {
+        gap: 36px;
+      }
+
+      .moment-large img {
+        aspect-ratio: 4 / 3;
+      }
+
+      .moment-small img {
+        aspect-ratio: 4 / 5;
+      }
+
+      .gallery-caption {
+        padding-top: 10px;
+        font-size: 12.5px;
+        line-height: 1.65;
+        letter-spacing: 0.045em;
+      }
+
+      .certificate-main img {
+        padding: 14px;
+      }
+
+      .certificate-note {
+        padding: 26px 22px;
+      }
+
+      .certificate-note h4 {
+        font-size: 30px;
+      }
+
+      .feedback-layout {
+        gap: 22px;
+        max-width: 330px;
+      }
+
+      .feedback-item {
+        padding: 0;
+      }
+
+      .feedback-item img {
+        aspect-ratio: auto;
+        padding: 10px;
+        border-radius: 16px;
+        background: rgba(251, 248, 243, 0.50);
+      }
 
       .modal {
         padding: 24px;
@@ -1315,6 +1406,19 @@
         line-height: 1.25;
       }
     }
+
+    /* Fine-tune English spacing: keep Chinese tracking, prevent apostrophe gaps in English copy */
+    #resume-en,
+    #resume-en p,
+    #resume-en li,
+    #resume-en span,
+    .en-copy,
+    .btn-en,
+    .modal-title-en,
+    .basket-count-en {
+      letter-spacing: 0;
+    }
+
   </style>
 </head>
 
@@ -1434,9 +1538,9 @@
 
           <div id="resume-en" class="resume-version">
             <div class="about-keynotes">
-              <span>Mandarin, English, and Taiwanese are available</span>
-              <span>Gentle companionship that follows each child’s pace, with a calm and comfortable rhythm</span>
-              <span>Support for parents who need time to work, rest, or take a quiet break</span>
+              <span>Care available in Mandarin, English, and Taiwanese</span>
+              <span>Calm, responsive care that follows each child’s pace</span>
+              <span>Flexible support for parents who need time to work, rest, or step away</span>
             </div>
 
             <div class="editorial-about">
@@ -1445,11 +1549,11 @@
                   <span class="section-index">01</span>
                   <h3>Service</h3>
                   <ul>
-                    <li>In-home childcare and play support in Kaohsiung, ideally near Sanduo Shopping District Station, within about two MRT stops or a 10-minute ride</li>
-                    <li>Minimum inquiry duration: 2 hours; please refer to Availability for current available dates and times</li>
-                    <li>Experience with companionship and temporary childcare for infants and children aged around 2–6</li>
-                    <li>Available support includes play, storytelling, feeding — food should be provided by the family — soothing, naps, diaper changes, bathing, walks, and outdoor accompaniment</li>
-                    <li>Car pick-up or drop-off can be discussed in advance if needed</li>
+                    <li>Occasional in-home childcare and play-based care in Kaohsiung, ideally near Sanduo Shopping District Station, within about two MRT stops or a 10-minute ride</li>
+                    <li>Minimum inquiry duration: 2 hours. Please refer to Availability for current available dates and times</li>
+                    <li>Experience caring for infants, toddlers, and children around ages 2–6</li>
+                    <li>Care may include play, storytime, meals or snacks — food should be provided by the family — soothing, nap support, diaper changes, bathing, walks, and outings</li>
+                    <li>Pick-up or drop-off by car can be discussed in advance if needed</li>
                   </ul>
                 </div>
                 <figure class="editorial-image"><img src="images/atmosphere_01.png" alt="Felicia Childcare atmosphere image 1" /></figure>
@@ -1461,10 +1565,10 @@
                   <span class="section-index">02</span>
                   <h3>About Me</h3>
                   <ul>
-                    <li>Double major in International Business and Advertising, National Chengchi University</li>
+                    <li>Double majored in International Business and Advertising at National Chengchi University</li>
                     <li>Comfortable communicating in Mandarin, English, and Taiwanese</li>
                     <li>Former project manager in the information service industry, with strong communication and coordination skills, patience, attention to detail, and the ability to respond quickly</li>
-                    <li>Completed professional childcare training and currently preparing for childcare-related certification</li>
+                    <li>Completed a 126-hour professional childcare training course and currently preparing for childcare-related certification</li>
                   </ul>
                 </div>
               </section>
@@ -1479,33 +1583,33 @@
                     <p class="price-emphasis"><strong>$350 / hr</strong></p>
                     <ul>
                       <li>3 hours: $1,000; 4 hours: $1,300</li>
-                      <li>Up to 9 hours per day: $3,000</li>
+                      <li>Up to 12 hours per day: $4,000</li>
                       <li>Final fee will be confirmed based on duration, location, and care needs</li>
                     </ul>
-                    <p class="price-note">After receiving childcare-related certification, the rate is expected to be adjusted to $400 / hr.<br />Rates for existing families will remain unchanged.</p>
+                    <p class="price-note">After I receive childcare-related certification, the rate is expected to be adjusted to $400 / hr.<br />Rates for existing families will remain unchanged.</p>
                   </div>
 
                   <div class="detail-block">
                     <h4>Transportation</h4>
-                    <p>Car pick-up or drop-off can be discussed if needed. A child safety seat should be provided by the family.</p>
+                    <p>Pick-up or drop-off by car can be discussed if needed. A child safety seat should be provided by the family.</p>
                     <p>Additional transportation or parking fees may apply depending on location, duration, and schedule.</p>
                   </div>
 
                   <div class="detail-block">
                     <h4>Notes</h4>
                     <ul>
-                      <li>Non-smoker</li>
-                      <li>No screen time will be provided during care</li>
-                      <li>Special needs, routines, or care preferences can be discussed in advance</li>
+                      <li>I do not smoke</li>
+                      <li>I do not provide screen time during care</li>
+                      <li>Special needs, daily routines, and care preferences can be discussed in advance</li>
                     </ul>
                   </div>
 
                   <div class="detail-block principles-detail">
                     <h4>Care Principles</h4>
                     <div class="principle-list">
-                      <p><strong>Safety first</strong><br />Prioritizing each child’s safety and basic needs</p>
+                      <p><strong>Safety first</strong><br />Prioritizing each child’s safety and essential needs</p>
                       <p><strong>Gentle companionship</strong><br />Respecting each child’s rhythm, emotions, and sense of comfort</p>
-                      <p><strong>Clear communication</strong><br />Keeping open and trustworthy communication with families</p>
+                      <p><strong>Clear communication</strong><br />Keeping communication open, clear, and trustworthy with families</p>
                     </div>
                   </div>
                 </div>
@@ -1528,7 +1632,7 @@
             實際安排以 Felicia 私訊確認為準。
           </p>
           <p class="en-copy">
-            This page shows the available times for the upcoming month.<br />
+            Available times for the upcoming month are shown below.<br />
             Please select a date and choose your preferred time.<br />
             Final arrangements will be confirmed with Felicia by message.
           </p>
@@ -1578,8 +1682,8 @@
             <div class="moment-layout">
               <article class="gallery-item moment-large"><img src="images/moment_01.jpg" alt="戶外陪伴與散步紀錄" /><div class="gallery-caption">戶外散步與陪伴時光</div></article>
               <article class="gallery-item moment-small"><img src="images/moment_02.jpg" alt="親子館陪伴紀錄" /><div class="gallery-caption">親子館互動與陪玩紀錄</div></article>
-              <article class="gallery-item moment-small"><img src="images/moment_03.jpg" alt="陪伴紀錄 3" /><div class="gallery-caption">日常陪伴紀錄</div></article>
-              <article class="gallery-item moment-large"><img src="images/moment_04.jpg" alt="陪伴紀錄 4" /><div class="gallery-caption">生活感陪伴紀錄</div></article>
+              <article class="gallery-item moment-small"><img src="images/moment_03.jpg" alt="陪伴紀錄照片 3" /><div class="gallery-caption">開車接送至戶外公園陪玩</div></article>
+              <article class="gallery-item moment-large"><img src="images/moment_04.jpg" alt="陪伴紀錄照片 4" /><div class="gallery-caption">生活感野餐與共融遊戲場陪伴</div></article>
             </div>
           </section>
           <section class="gallery-section feedback-section">
